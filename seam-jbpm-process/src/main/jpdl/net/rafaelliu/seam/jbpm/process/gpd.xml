@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<root-container name="ComunicadoAcme" width="1451" height="418">
+  <node name="Início" x="21" y="206" width="132" height="36">
+    <edge>
+      <label x="-35" y="-32"/>
+    </edge>
+  </node>
+  <node name="Revisar" x="666" y="94" width="132" height="36">
+    <edge>
+      <label x="-8" y="-25"/>
+    </edge>
+    <edge>
+      <label x="5" y="-10"/>
+      <bendpoint w1="-107" h1="-58" w2="128" h2="-58"/>
+    </edge>
+  </node>
+  <node name="Notificar Cordenador" x="1078" y="91" width="178" height="36">
+    <edge>
+      <label x="5" y="-10"/>
+    </edge>
+  </node>
+  <node name="Aprovar" x="908" y="222" width="132" height="36">
+    <edge>
+      <label x="-52" y="6"/>
+    </edge>
+    <edge>
+      <label x="-84" y="-11"/>
+    </edge>
+  </node>
+  <node name="Submeter Comunicado" x="392" y="94" width="210" height="36">
+    <edge>
+      <label x="5" y="-10"/>
+    </edge>
+  </node>
+  <node name="Tipo de comunicação" x="239" y="206" width="161" height="36">
+    <edge>
+      <label x="-100" y="-26"/>
+    </edge>
+    <edge>
+      <label x="-76" y="13"/>
+    </edge>
+  </node>
+  <node name="Submeter Campanha" x="534" y="308" width="188" height="36">
+    <edge>
+      <label x="5" y="-10"/>
+    </edge>
+  </node>
+  <node name="Não aprovado" x="1318" y="92" width="132" height="36"/>
+  <node name="Aprovado" x="1093" y="346" width="132" height="36"/>
+  <deployment serverName="localhost" serverPort="8080" serverDeployer="/gpd-deployer/upload">
+    <classesAndResources/>
+    <filesAndFolders>
+      <element value="/seam-jbpm-process/src/main/jpdl/net/rafaelliu/seam/jbpm/process/gpd.xml"/>
+      <element value="/seam-jbpm-process/src/main/jpdl/net/rafaelliu/seam/jbpm/process/processdefinition.xml"/>
+      <element value="/seam-jbpm-process/src/main/jpdl/net/rafaelliu/seam/jbpm/process/processimage.jpg"/>
+    </filesAndFolders>
+  </deployment>
+</root-container>

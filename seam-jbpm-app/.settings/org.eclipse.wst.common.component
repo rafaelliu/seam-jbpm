@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="seam-jbpm-app-app">
+        <wb-resource deploy-path="/" source-path="/WebContent"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main"/>
+        <wb-resource deploy-path="/WEB-INF/dev" source-path="/src/hot"/>
+        <property name="java-output-path" value="/seam-jbpm-app/build/classes"/>
+        <property name="context-root" value="seam-jbpm-app-app"/>
+    </wb-module>
+</project-modules>

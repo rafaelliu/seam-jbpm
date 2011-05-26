@@ -1,0 +1,45 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:s="http://jboss.com/products/seam/taglib"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:rich="http://richfaces.org/rich"
+    xmlns:a="http://richfaces.org/a4j"
+    template="layout/template.xhtml">
+
+<ui:define name="body">
+
+    <h:form id="aprovarCompraForm">
+
+        <rich:panel>
+            <f:facet name="header">Revisão de comunicado</f:facet>
+
+            <s:decorate id="documentoField" template="layout/edit.xhtml">
+                <ui:define name="label">Documento</ui:define>
+                <h:commandLink value="Download" action="#{historicoDocumentoManager.download}" />
+            </s:decorate>
+
+	        <s:decorate id="SolicitanteField" template="layout/edit.xhtml">
+	            <ui:define name="label">Comentário</ui:define>
+	            <h:inputTextarea id="value" required="true" rows="5"
+	                         value="#{acmeProcess.comentario}" />
+	        </s:decorate>
+
+
+            <div style="clear:both"/>
+
+        </rich:panel>
+
+        <div class="actionButtons">
+        	<h:commandButton value="Aprovar" action="#{revisaoComunicadoManager.aprovar}" />
+        	<h:commandButton value="Reprovar" action="#{revisaoComunicadoManager.reprovar}" />
+        	<h:commandButton value="Retornar para Principal" action="/home.seam" />
+        </div>
+
+    </h:form>
+
+</ui:define>
+
+</ui:composition>

@@ -1,0 +1,45 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:s="http://jboss.com/products/seam/taglib"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:rich="http://richfaces.org/rich"
+    xmlns:a="http://richfaces.org/a4j"
+    template="layout/template.xhtml">
+
+<ui:define name="body">
+
+    <h:form id="solicitacaoPedidoManagerForm">
+
+        <rich:panel>
+            <f:facet name="header">Solicitação de comunicado</f:facet>
+
+            <s:decorate id="descricaoField" template="layout/edit.xhtml">
+                <ui:define name="label">Descrição da solicitação</ui:define>
+                <h:inputText id="value" required="true"
+                             value="#{acmeProcess.descricao}" size="50" />
+            </s:decorate>
+
+            <s:decorate id="tipoField" template="layout/edit.xhtml">
+                <ui:define name="label">Tipo da solicitação</ui:define>
+                <h:selectOneRadio value="#{acmeProcess.tipo}" required="true">
+                	<f:selectItem itemLabel="Relacionamento" itemValue="relacionamento" />  
+                	<f:selectItem itemLabel="Campanha" itemValue="campanha" />  
+                </h:selectOneRadio>
+            </s:decorate>
+
+            <div style="clear:both"/>
+
+        </rich:panel>
+
+        <div class="actionButtons">
+            <h:commandButton id="solicitarCompra" value="Solicitar"
+                    action="#{solicitacaoComunicadoManager.solicitar}"/></div>
+
+    </h:form>
+
+</ui:define>
+
+</ui:composition>

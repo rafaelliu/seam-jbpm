@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<process-definition  xmlns=""  name="ComunicadoAcme">
+
+
+	<start-state name="Início">
+		<transition to="Tipo de comunicação"></transition>
+	</start-state>
+
+
+	<task-node name="Revisar">
+		<task name="Revisar">
+			<description>
+				Revisar Ordem	
+			</description>
+			<assignment pooled-actors="revisores"></assignment>
+		</task>
+		<transition to="Aprovar" name="aprovar"></transition>
+		<transition to="Submeter Comunicado" name="reprovar"></transition>
+	</task-node>
+
+	<mail-node name="Notificar Cordenador" to="rafaelliu@gmail.com">
+		<subject>
+			Inicio
+		</subject>
+		<text>
+			Comunicado '#{descricao}' foi reprovado
+		</text>
+		<transition to="Não aprovado"></transition>
+	</mail-node>
+
+	<task-node name="Aprovar">
+		<task name="Aprovar">
+			<assignment pooled-actors="aprovadores"></assignment>
+		</task>
+		<transition to="Aprovado" name="aprovar"></transition>
+		<transition to="Notificar Cordenador" name="reprovar"></transition>
+	</task-node>
+
+	<task-node name="Submeter Comunicado">
+		<task name="Submeter Comunicado">
+			<assignment pooled-actors="autores"></assignment>
+		</task>
+		<transition to="Revisar"></transition>
+	</task-node>
+
+	<decision name="Tipo de comunicação" expression="#{tipo}">
+		<transition to="Submeter Comunicado" name='relacionamento'></transition>
+		<transition to="Submeter Campanha" name="campanha"></transition>
+	</decision>
+
+	<task-node name="Submeter Campanha">
+		<task name="Submeter Campanha">
+			<assignment pooled-actors="autores"></assignment>
+		</task>
+		<transition to="Aprovado"></transition>
+	</task-node>
+
+
+	<end-state name="Não aprovado"></end-state>
+
+	<end-state name="Aprovado"></end-state>
+
+
+</process-definition>

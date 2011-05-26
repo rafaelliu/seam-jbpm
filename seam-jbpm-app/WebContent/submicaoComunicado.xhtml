@@ -1,0 +1,46 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:s="http://jboss.com/products/seam/taglib"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:rich="http://richfaces.org/rich"
+    xmlns:a="http://richfaces.org/a4j"
+    xmlns:a4j="http://richfaces.org/a4j"
+    template="layout/template.xhtml">
+
+<ui:define name="body">
+
+    <h:form>
+
+        <rich:panel>
+            <f:facet name="header">Sumição de comunicado</f:facet>
+
+            <s:decorate id="SolicitanteField" template="layout/edit.xhtml">
+                <ui:define name="label">Comentário</ui:define>
+                <h:inputTextarea id="value" required="true" rows="5"
+                             value="#{acmeProcess.comentario}" />
+            </s:decorate>
+
+            <s:decorate id="arquivoField" template="layout/edit.xhtml">
+                <ui:define name="label">Arquivo</ui:define>
+	            <rich:fileUpload fileUploadListener="#{fileUploadBean.listener}"
+	                maxFilesQuantity="1" required="true" immediateUpload="true">
+	            </rich:fileUpload>
+            </s:decorate>
+
+            <div style="clear:both"/>
+
+        </rich:panel>
+
+        <div class="actionButtons">
+        	<h:commandButton value="Submeter" action="#{submicaoCompraManager.submeter}" />
+        	<h:commandButton value="Retornar para Principal" action="/home.seam" />
+        </div>
+
+    </h:form>
+
+</ui:define>
+
+</ui:composition>
