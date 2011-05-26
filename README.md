@@ -1,7 +1,8 @@
-*** PoC criada com base no exemplo do Rafael Benevides, em seu GitHub
-*** URL: https://github.com/rafabene/SeamExamples/tree/master/jbpmExample
+Prova de conceito de integração Seam/jBPM
+=========================================
 
-Como executar o exemplo:
+Como executar o exemplo
+-----------------------
 1. Utilizar o JBoss Developer Studio/JBoss Tools 
 2. Importar projetos seam-jbpm-app e seam-jbpm-process 
 3. Reconfigurar Build Path e Seam Settings (sorry Maven fans!)
@@ -10,3 +11,8 @@ Como executar o exemplo:
    o components.xml para declarar o jdpl)
 6. Fazer deploy da aplicação
 7. Brincar!
+
+Créditos
+--------
+PoC criada com base no exemplo do Rafael Benevides, disponível em seu [GitHub](https://github.com/rafabene/SeamExamples/tree/master/jbpmExample)
+
